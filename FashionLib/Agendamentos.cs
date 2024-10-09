@@ -8,7 +8,7 @@ namespace FashionLib
 {
     public class Agendamentos
     {//Declaração das Variaveis
-        
+
 
         public int Id { get; set; }
         public int Id_Cliente { get; set; }
@@ -27,7 +27,7 @@ namespace FashionLib
         }
 
         //Método sem Id
-        public Agendamentos( int id_Cliente, int id_Funcionario, DateTime data_Agendamento)
+        public Agendamentos(int id_Cliente, int id_Funcionario, DateTime data_Agendamento)
         {
 
             Id_Cliente = id_Cliente;
@@ -36,7 +36,7 @@ namespace FashionLib
         }
 
         //Método sem Id e Data_Agendamento
-        public Agendamentos( int id_Cliente, int id_Funcionario)
+        public Agendamentos(int id_Cliente, int id_Funcionario)
         {
             Id_Cliente = id_Cliente;
             Id_Funcionario = id_Funcionario;
@@ -53,6 +53,9 @@ namespace FashionLib
         //Funções
 
         //Função Para Inserir
-        public void
+        public void Inserir()
+        {
+
+        }
     }
 }
