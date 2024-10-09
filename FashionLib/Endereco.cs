@@ -58,7 +58,7 @@ namespace FashionLib
         public void Inserir()
         {
             var cmd = Banco.Abrir();
-            cmd.CommandType = CommandType.Text;
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = $"sp_endereco_insert";
             cmd.Parameters.AddWithValue("splogradouro",Logradouro);
             cmd.Parameters.AddWithValue("spnumero",Numero);
