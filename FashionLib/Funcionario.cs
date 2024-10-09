@@ -9,7 +9,7 @@ using System.Data;
 
 namespace FashionLib
 {
-    internal class Funcionario // O nome da classe deve começar com letra maiúscula por convenção
+    public class Funcionario
     {
         // Declaração das Variáveis
         public int Id { get; set; }
@@ -134,6 +134,38 @@ namespace FashionLib
             cmd.CommandText = $"update funcionarios set ativo = 1 where id = {id}";
             cmd.ExecuteNonQuery(); 
             cmd.Connection.Close();
+        }
+
+        public static Funcionario ObterPorId(int Id)
+        {
+            Funcionario funcionario= new Funcionario();
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = $"Select * from funcionarios where id = {Id}";
+            cmd.Connection.Close();
+            return funcionario;
+        }
+
+        //Função Listar
+        public static List<Funcionario> ObterPorLista(string? nome = "")
+        {
+            List<Funcionario> lista = new();
+            var cmd = Banco.Abrir();
+            cmd.CommandType = CommandType.Text;
+            if (nome == "")
+            {
+                cmd.CommandText = "Select * from funcionarios order by nome";
+            }
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                lista.Add(new(
+                    
+                    ));
+            }
+            cmd.Connection.Close();
+            return lista;
+
         }
     }
 }
