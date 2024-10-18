@@ -1,4 +1,6 @@
-﻿namespace FashionHairDesk
+﻿using Guna.UI2.WinForms;
+
+namespace FashionHairDesk
 {
     partial class UserControl1
     {
