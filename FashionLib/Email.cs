@@ -13,27 +13,27 @@ namespace FashionLib
     {
         // Declaração das Variáveis
         public int Id { get; set; }
-        public string E_mail { get; set; }
+        public string Emails { get; set; }
 
         // Métodos Construtores
 
         // Método com Tudo
-        public Email(int id, string email)
+        public Email(int id, string emails)
         {
             Id = id;
-            E_mail = email;
+            Emails = emails;
         }
 
         // Método sem Id
-        public Email(string email)
+        public Email(string emails)
         {
-            E_mail = email;
+            Emails = emails;
         }
 
         // Método Vazio
         public Email()
         {
-            Id = Id;
+            Id = new();
         }
 
         // Funções
@@ -44,7 +44,7 @@ namespace FashionLib
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "sp_emails_insert";
-            cmd.Parameters.AddWithValue("sp_email",E_mail);
+            cmd.Parameters.AddWithValue("sp_email",Emails);
 
             var dr = cmd.ExecuteReader();
             while (dr.Read())
@@ -65,12 +65,12 @@ namespace FashionLib
         }
 
         // Função Listar
-        public static List<Email> ObterPorLista(string? e_mail = "")
+        public static List<Email> ObterPorLista(string? emails = "")
         {
             List<Email> lista = new();
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
-            if(e_mail == "")
+            if(emails == "")
             {
                 cmd.CommandText = "select * from emails order by email";
             }
@@ -92,7 +92,7 @@ namespace FashionLib
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "sp_emails_update";
-            cmd.Parameters.AddWithValue("sp_email", E_mail);
+            cmd.Parameters.AddWithValue("sp_email", Emails);
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
         }
