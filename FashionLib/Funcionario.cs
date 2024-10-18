@@ -16,7 +16,7 @@ namespace FashionLib
         public string Nome { get; set; }
         public string Rg { get; set; }
         public string Cpf { get; set; }
-        public DateTime Data_Nasc { get; set; }
+        public DateOnly Data_Nasc { get; set; }
         public int? Ativo { get; set; }
         public int Id_Cargo { get; set; }
         public char Disponibilidade { get; set; }
@@ -24,7 +24,7 @@ namespace FashionLib
         // Métodos Construtores
 
         // Método Com Tudo
-        public Funcionario(int id, string nome, string rg, string cpf, DateTime data_Nasc, int? ativo, int id_Cargo, char disponibilidade)
+        public Funcionario(int id, string nome, string rg, string cpf, DateOnly data_Nasc, int? ativo, int id_Cargo, char disponibilidade)
         {
             Id = id;
             Nome = nome;
@@ -37,7 +37,7 @@ namespace FashionLib
         }
 
         // Método Sem Id
-        public Funcionario(string nome, string rg, string cpf, DateTime data_Nasc, int ativo, int id_Cargo, char disponibilidade)
+        public Funcionario(string nome, string rg, string cpf, DateOnly data_Nasc, int ativo, int id_Cargo, char disponibilidade)
         {
             Nome = nome;
             Rg = rg;
@@ -49,7 +49,7 @@ namespace FashionLib
         }
 
         // Método Sem Id e Ativo
-        public Funcionario(string nome, string rg, string cpf, DateTime data_Nasc, int id_Cargo, char disponibilidade)
+        public Funcionario(string nome, string rg, string cpf, DateOnly data_Nasc, int id_Cargo, char disponibilidade)
         {
             Nome = nome;
             Rg = rg;
@@ -60,7 +60,7 @@ namespace FashionLib
         }
 
         // Método com Id e Ativo e Sem Id_Cargo
-        public Funcionario(int id, string nome, string rg, string cpf, DateTime data_Nasc, int ativo, char disponibilidade)
+        public Funcionario(int id, string nome, string rg, string cpf, DateOnly data_Nasc, int ativo, char disponibilidade)
         {
             Id = id;
             Nome = nome;
